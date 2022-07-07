@@ -1,10 +1,4 @@
 /**
- * Basic messages to send to users
- */
-const rules = `Please review the #rules channel.`
-const checkin = `Use the #check-in-check-out channel.`
-
-/**
  * Connect with the Wasp discord bot you created
  */
 const Discord = require('discord.js')
@@ -47,8 +41,7 @@ bot.on('message', async msg => {
       if (member.roles.cache.get(GUEST_ROLE_ID)) {
         await member.roles.remove(GUEST_ROLE_ID)
         return msg.reply(
-          'Nice getting to know you! You are no longer a guest' +
-          ' and have full access, welcome!'
+          `Nice getting to know you!🎉 You are no longer a guest and have full access 🔓🔑, **Welcome!**\n\n>TODO:\n  👀Review **#rules**\n️✅Use the #check-in-check-out\n💬Join the **Lounge** voice channel (📺video on or off)`
         )
       }
     } catch (error) {
