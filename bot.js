@@ -17,36 +17,43 @@ bot.on('ready', function (evt) {
  */
 const INTRODUCTIONS_CHANNEL_ID = "992179910829416570"
 const GUEST_ROLE_ID = "994632643322847273"
+const DAY_OWL_ROLE_ID = "994676914314809505"
 
 bot.on('message', async msg => {
-  if (msg.content.startsWith('!intro ')) {
-    if (msg.channel.id.toString() !== INTRODUCTIONS_CHANNEL_ID) {
-      const introductionsChannelName =
-        msg.guild.channels.resolve(INTRODUCTIONS_CHANNEL_ID).name
-      return msg.reply(
-      `Please use !intro command in the ${introductionsChannelName} channel!`
-      )
-    }
+    if (msg.content.startsWith('!intro ')) {
+        if (msg.channel.id.toString() !== INTRODUCTIONS_CHANNEL_ID) {
+            const introductionsChannelName =
+                msg.guild.channels.resolve(INTRODUCTIONS_CHANNEL_ID).name
+            return msg.reply(
+                `Please use !intro command in the ${introductionsChannelName} channel!`
+            )
+        }
 
-    const introMsg = msg.content.substring('!intro '.length).trim()
-    const minMsgLength = 20
-    if (introMsg.length < minMsgLength) {
-      return msg.reply(
-        `Please write introduction at least ${minMsgLength} characters long!`
-      )
-    }
+        const introMsg = msg.content.substring('!intro '.length).trim()
+        const minMsgLength = 20
+        if (introMsg.length < minMsgLength) {
+            console.log(`User ${GUEST_ROLE_ID} tried attempted to login`)
 
-    const member = msg.guild.member(msg.author)
-    try {
-      if (member.roles.cache.get(GUEST_ROLE_ID)) {
-        await member.roles.remove(GUEST_ROLE_ID)
-        return msg.reply(
-          `Nice getting to know you!🎉 You are no longer a guest and have full access 🔓🔑, **Welcome!**\n\n>TODO:\n  👀Review **#rules**\n️✅Use the #check-in-check-out\n💬Join the **Lounge** voice channel (📺video on or off)`
-        )
-      }
-    } catch (error) {
-      return msg.reply(`Error: ${error}`)
+            return msg.reply(
+                `Please write introduction at least ${minMsgLength} characters long!`
+            )
+        }
+
+        const member = msg.guild.member(msg.author)
+        try {
+            if (member.roles.cache.get(GUEST_ROLE_ID)) {
+                await member.roles.remove(GUEST_ROLE_ID)
+                    .then(member.roles.add(DAY_OWL_ROLE_ID))
+                console.log(`User GUEST_ROLE ${GUEST_ROLE_ID} successfully removed`)
+                console.log(`User DAY_OWL_ROLE ${DAY_OWL_ROLE_ID} successfully added`)
+
+                return msg.reply(
+                    `Nice getting to know you!🎉 You are no longer a guest and have full access 🔓🔑, **Welcome!**\n\n>TODO:\n  👀Review **#rules**\n️✅Use the #check-in-check-out\n💬Join the **Lounge** voice channel (📺video on or off)`
+                )
+            }
+        } catch (error) {
+            return msg.reply(`Error: ${error}`)
+        }
     }
-  }
 })
 
