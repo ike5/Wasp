@@ -55,7 +55,7 @@ bot.on('message', async msg => {
                 console.log(`${count++} DAY_OWL_ROLE_ID ${DAY_OWL_ROLE_ID} successfully added`)
 
                 return msg.reply(
-                    `Nice getting to know you!🎉 You are no longer a guest and have full access 🔓🔑, **Welcome!**\n\n>TODO:\n  👀Review **#rules**\n️✅Use the #check-in-check-out\n💬Join the **Lounge** voice channel (📺video on or off)`
+                    `Nice getting to know you!🎉 You are no longer a guest and have full access 🔓🔑, **Welcome!**\n\n**TODO:**\n👀 Review **#rules**\n️✅ Use the **#check-in-check-out** channel\n💬 Join the **Lounge** voice channel (📺video on or off)`
                 )
             }
         } catch (error) {
