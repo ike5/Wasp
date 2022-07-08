@@ -67,5 +67,6 @@ bot.on('message', async msg => {
     //         `Something went wrong! 💥🚫😱 Please review the #rules channel on how to make your post here or contact @ike5 if you're still encountering issues.`
     //     )
     // }
+    // Extra message for testing purposes
 })
 
