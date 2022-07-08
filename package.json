@@ -4,8 +4,7 @@
   "description": "A bot to require new users to post in the introductions channel before seeing anything on the Day Owls server.",
   "main": "bot.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node bot.js"
+    "test": "echo \"Error: no test specified\" && exit 1" 
   },
   "author": "Ike Maldonado",
   "license": "ISC",
