@@ -24,7 +24,8 @@ let count = 0
 bot.on('message', async msg => {
     if (msg.content.startsWith('!intro ')) {
 
-        // Not sure what this is for
+        // If user does not enter !intro inside the #introductions channel
+        // respond and let them know where to go.
         if (msg.channel.id.toString() !== INTRODUCTIONS_CHANNEL_ID) {
             const introductionsChannelName =
                 msg.guild.channels.resolve(INTRODUCTIONS_CHANNEL_ID).name
