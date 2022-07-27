@@ -65,7 +65,7 @@ bot.on("message", async (msg) => {
         );
 
         return msg.reply(
-          `Nice getting to know you!🎉 You are no longer a guest and have full access 🔓🔑, **Welcome!**\n\n**TODO:**\n👀 Review **#rules**\n️✅ Use the **#check-in-check-out** channel\n💬 Join the **Lounge** voice channel (📺video on or off)`
+          `Nice getting to know you!\n**TODO:**\nChoose your study time by reacting in the #updates channel.\nChose your group by reacting in the #updates channel.`
         );
       }
     } catch (error) {
