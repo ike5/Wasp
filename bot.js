@@ -21,10 +21,15 @@ const GUEST_ROLE_ID = "994632643322847273";
 const DAY_OWL_ROLE_ID = "994676914314809505";
 let count = 0;
 
+bot.on("guildMemberUpdate", async (oldMember, newMemeber) => {
+  console.log(`Role changed for ${oldMember.user.username}`);
+  twilio.send;
+});
+
 bot.on("message", async (msg) => {
   // show that a new user tried to log in
   // Trigger and send a message
-  twilio.send
+  twilio.send;
 
   if (msg.content.startsWith("!intro ")) {
     // If user does not enter !intro inside the #introductions channel
